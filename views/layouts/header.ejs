@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 5px ; /* Smaller padding */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column; /* added */
+    }
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    /* Dropdown styling */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    /* Dropdown 1 styling */
+    .dropdown1 .dropdown-content {
+      background-color: #007bff; /* blue */
+    }
+    /* Dropdown 2 styling */
+    .dropdown2 .dropdown-content {
+      background-color: #28a745; /* green */
+    }
+    /* Dropdown 3 styling */
+    .dropdown3 .dropdown-content {
+      background-color: #dc3545; /* red */
+    }
+    /* Dropdown link styling */
+    .dropdown-content a {
+      color: #fff;
+      padding: 8px ; /* Smaller padding */
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #555;
+    }
+    h1{
+        color: green
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dy Patil College of Engineering, Ambi Pune</h1> <!-- Added heading -->
+  <nav>
+    <ul>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/admin">Admin Login</a></li>
+      <li><a href="/register">Register</a></li>
+      <!-- Dropdown 1 -->
+      <li class="dropdown dropdown1">
+        <a href="#">Alumni</a>
+        <div class="dropdown-content">
+          <a href="#">Alumni Directory</a>
+          <a href="#">Alumni Events</a>
+          <a href="/admin">Alumni Login</a>
+        </div>
+      </li>
+      <li><a href="#">Dashboard</a></li>
+      <!-- Dropdown 2 -->
+      <li class="dropdown dropdown2">
+        <a href="#">Projects</a>
+        <div class="dropdown-content">
+          <a href="#">Project 1</a>
+          <a href="#">Project 2</a>
+          <a href="#">Project 3</a>
+        </div>
+      </li>
+      <!-- Dropdown 3 -->
+      <li class="dropdown dropdown3">
+        <a href="#">Services</a>
+        <div class="dropdown-content">
+          <a href="#">Service 1</a>
+          <a href="#">Service 2</a>
+          <a href="#">Service 3</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+</body>
+</html>

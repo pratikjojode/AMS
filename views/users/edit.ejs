@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Alumni Profile</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .footer p {
+            color: #ccc;
+            margin: 5px 0;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../layouts/header.ejs') %>
+    <div class="container">
+        <h1>Edit Alumni Profile</h1>
+        <img src="/userImages/<%= user.image %>" width="100px" alt="<%= user.image %>">
+        <form action="/edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="user_id" value="<%= user._id %>">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= user.name %>">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= user.email %>">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" value="<%= user.mobile %>">
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" value="<%= user.year %>">
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch" value="<%= user.branch %>">
+            <label for="image">Profile Image:</label>
+            <input type="file" id="image" name="image">
+            <button type="submit" value="Update">Update</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>
+            &copy; 2024 Pratik Jojode. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </p>
+    </div>
+</body>
+</html>

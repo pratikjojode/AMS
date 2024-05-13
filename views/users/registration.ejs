@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Registration</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="file"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .login-btn {
+            display: flex;
+            justify-content: center;
+            background-color: green;
+            margin-top: 12px;
+            padding: 5px;
+            list-style: none;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #ccc;
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../layouts/header.ejs') %>
+    <h1>Alumni Registration Form</h1>
+    <form action="/register" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Your Name" required />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter Your Email" required />
+        </div>
+        <div>
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required />
+        </div>
+        <div>
+            <label for="image">Profile Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Your Password" required />
+        </div>
+        <div>
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" placeholder="Enter Your Year" required />
+        </div>
+        <div>
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch" placeholder="Enter Your Branch" required />
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+        <a href="/login" class="login-btn">Login</a>
+        <% if (typeof message !== 'undefined') { %>
+        <p style="color: green"><%= message %></p>
+        <% } %>
+    </form>
+
+    <div class="footer">
+        <p>
+            &copy; 2024 Pratik Jojode. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </p>
+    </div>
+</body>
+</html>

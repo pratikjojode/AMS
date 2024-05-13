@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Alumni</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      input[type="name"],
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        outline: none;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      label {
+        color: #333;
+        margin-bottom: 5px;
+      }
+      .footer {
+        background-color: #222;
+        color: #fff;
+        padding: 20px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .footer p {
+        color: #ccc;
+        margin: 5px 0;
+      }
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+</head>
+<body>
+  <%- include('../layouts/header.ejs') %>
+    <div class="container">
+      <h1>Edit Alumni</h1>
+      <form action="" method="post">
+        <input type="name" name="name" placeholder="Enter your name"  value="<%= user.name %>" />
+        <input type="text" name="mobile" placeholder="Enter mobile number" value="<%= user.mobile %>" required />
+        <label for="verified">Verified</label>
+        <input type="checkbox" name="verify" id="verified" value="1" <% if(user.is_verified === 1) { %> checked <% } %> />
+        <label for="unverified">Unverified</label>
+        <input type="checkbox" name="verify" id="unverified" value="0" <% if(user.is_verified !== 1) { %> checked <% } %> />
+        <input type="email" name="email" value="<%= user.email %>" placeholder="Enter admin Email" />
+        <input type="hidden"  name="id" value="<%=user._id %>">
+        <label for="branch">Branch:</label>
+        <input type="text" name="branch" id="branch" value="<%= user.branch %>" placeholder="Enter branch" />
+        <label for="year">Year:</label>
+        <input type="text" name="year" id="year" value="<%= user.year %>" placeholder="Enter year" />
+        <input type="submit" value="Update Alumni" />
+        <a href="/admin/">Go to Dashboard</a>
+      </form>
+    </div>
+    <div class="footer">
+      <p>
+        &copy; 2024 Pratik Jojode. All rights reserved. |
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      </p>
+    </div>
+</body>
+</html>

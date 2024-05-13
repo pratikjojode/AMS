@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #ccc;
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 50px auto;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        td img {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            padding: 10px;
+            transition: transform 0.5s ease-in-out;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <%- include('../layouts/header.ejs') %>
+<div class="main">
+    <h1>Welcome Admin, <%= admin.name %></h1>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td><strong>Image:</strong></td>
+            <td>
+                <img src="/userImages/<%= admin.image %>" alt="<%= admin.image %>" />
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Email:</strong></td>
+            <td><%= admin.email %></td>
+        </tr>
+        <tr>
+            <td><strong>Mobile:</strong></td>
+            <td><%= admin.mobile %></td>
+        </tr>
+    </table>
+    <a href="/admin/dashboard">Dashboard</a>
+    <a href="/admin/logout" class="logout-btn">Logout</a>
+</div>
+
+<%- include('../layouts/footer.ejs') %>
+</body>
+</html>

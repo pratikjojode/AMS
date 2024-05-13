@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User List</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 1000px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid black;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #0f0101;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+       
+    </style>
+</head>
+<body>
+
+  <%- include('../layouts/header.ejs') %>
+
+    <h1>Alumni List</h1>
+    <a href="/admin/new-user">Add new Alumni</a>
+    <a href="/register">New User? Register</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Image</th>
+                <th>Verified</th>
+                <th>Actions</th>
+                <th>Delete</th>
+                <th>Branch</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (users.length > 0) { %> <% for (let i = 0; i < users.length; i++) { %>
+            <tr>
+                <td><%= users[i].name %></td>
+                <td><%= users[i].email %></td>
+                <td><%= users[i].mobile %></td>
+                <td>
+                    <img src="/userImages/<%= users[i].image %>" width="50px" height="50px" alt="<%= users[i].name %> Image" />
+                </td>
+                <td>
+                    <% if (users[i].is_verified) { %> Yes <% } else { %> No <% } %>
+                </td>
+                <td>
+                    <a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a>
+                </td>
+                <td>
+                    <a href="/admin/delete-user?id=<%= users[i]._id%>">Delete Alumni</a>
+                </td>
+                <td><%= users[i].branch %></td>
+                <td><%= users[i].year %></td>
+            </tr>
+            <% } %> <% } else { %>
+            <tr>
+                <td colspan="9">No users found</td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <a href="/admin/home">Home</a>
+
+    <%- include('../layouts/footer.ejs') %>
+</body>
+</html>
